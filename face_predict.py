@@ -2,11 +2,12 @@ import cv2
 
 face_cascade = cv2.CascadeClassifier("data/haarcascade_frontalface_alt2.xml")
 
+#image = cv2.imread("image/IU2.jpg", cv2.IMREAD_COLOR)
 vcp = cv2.VideoCapture(0, cv2.CAP_DSHOW)
 
 model = cv2.face.LBPHFaceRecognizer_create()
 
-model.read("model/face-trainner.yml")
+model.read("model/face-trainner2.yml")
 
 while True:
     ret, my_image = vcp.read()
@@ -16,7 +17,7 @@ while True:
 
         gray = cv2.equalizeHist(gray)
 
-        faces = face_cascade.detectMultiScale(gray, 1.5, 5, 0, (20, 20))
+        faces = face_cascade.detectMultiScale(gray, 1.1, 5, 0, (20, 20))
 
         facesCnt = len(faces)
 
